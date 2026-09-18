@@ -1,0 +1,259 @@
+/*
+ * zxc-desing — Tailwind CSS v4 inject template
+ * Usage: at the top of the global CSS entry (e.g. src/index.css):
+ *   @import "tailwindcss";
+ *   then paste this file (or @import "./zxc-desing-theme.css";)
+ * Dark: add class "dark" on <html>
+ */
+
+@theme {
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI",
+    "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC",
+    ui-sans-serif, system-ui, sans-serif;
+  --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
+    "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", ui-sans-serif,
+    system-ui, sans-serif;
+  --font-mono: ui-monospace, "SFMono-Regular", "SF Mono", Menlo, Consolas, monospace;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-error: var(--error);
+  --color-info: var(--info);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  --shadow-elev-1: var(--elev-1);
+  --shadow-elev-2: var(--elev-2);
+
+  --ease-deck: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* —— Semantic tokens (aligned with tokens.md) —— */
+:root {
+  --background: #f5f5f7;
+  --foreground: #1d1d1f;
+  --card: #ffffff;
+  --card-foreground: #1d1d1f;
+  --popover: #ffffff;
+  --popover-foreground: #1d1d1f;
+  --primary: #0071e3;
+  --primary-foreground: #ffffff;
+  --secondary: #e8e8ed;
+  --secondary-foreground: #1d1d1f;
+  --muted: #e8e8ed;
+  --muted-foreground: #86868b;
+  --accent: #34c759;
+  --accent-foreground: #ffffff;
+  --destructive: #ff3b30;
+  --destructive-foreground: #ffffff;
+  --success: #34c759;
+  --success-foreground: #ffffff;
+  --warning: #ff9500;
+  --warning-foreground: #1d1d1f;
+  --error: #ff3b30;
+  --error-foreground: #ffffff;
+  --info: #0071e3;
+  --info-foreground: #ffffff;
+  --border: rgba(0, 0, 0, 0.08);
+  --input: rgba(0, 0, 0, 0.12);
+  --ring: #0071e3;
+  --radius: 0.875rem;
+  --chart-1: #0071e3;
+  --chart-2: #34c759;
+  --chart-3: #ff9500;
+  --chart-4: #af52de;
+  --chart-5: #8e8e93;
+
+  --elev-1: 0 1px 2px rgba(15, 23, 42, 0.06), 0 4px 10px rgba(15, 23, 42, 0.07),
+    0 12px 28px -6px rgba(15, 23, 42, 0.14);
+  --elev-2: 0 6px 16px rgba(15, 23, 42, 0.1), 0 20px 48px -10px rgba(15, 23, 42, 0.18);
+  --card-stroke: rgba(0, 0, 0, 0.1);
+  --card-face: linear-gradient(180deg, #ffffff 0%, #ebebef 55%, #e4e4ea 100%);
+  --card-face-end: #e4e4ea;
+
+  --input-fill: rgba(0, 0, 0, 0.055);
+  --input-inset: inset 0 1px 3px rgba(0, 0, 0, 0.14), inset 0 0 0 1px rgba(0, 0, 0, 0.04);
+  --scrollbar-thumb: rgba(0, 0, 0, 0.15);
+  --scrollbar-thumb-hover: rgba(0, 0, 0, 0.28);
+
+  --glass-blur: 32px;
+  --glass-blur-strong: 48px;
+  --glass-saturate: 1.9;
+  --glass-bg: rgba(255, 255, 255, 0.28);
+  --glass-bg-strong: rgba(255, 255, 255, 0.36);
+  --glass-stroke-edge: rgba(0, 0, 0, 0.1);
+  --glass-shadow: 0 1px 0 color-mix(in srgb, #ffffff 45%, transparent) inset,
+    0 -1px 0 color-mix(in srgb, var(--foreground) 8%, transparent) inset,
+    0 10px 32px color-mix(in srgb, var(--foreground) 10%, transparent);
+  --glass-radius: 1.25rem;
+
+  --deck-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --motion-fast: 100ms;
+  --motion-panel: 0.35s;
+
+  --sidebar-background: rgba(245, 245, 247, 0.82);
+  --sidebar-foreground: #1d1d1f;
+  --sidebar-primary: #0071e3;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: rgba(0, 113, 227, 0.12);
+  --sidebar-accent-foreground: #0071e3;
+  --sidebar-border: rgba(0, 0, 0, 0.08);
+  --sidebar-ring: #0071e3;
+}
+
+.dark {
+  --background: #000000;
+  --foreground: #f5f5f7;
+  --card: #1c1c1e;
+  --card-foreground: #f5f5f7;
+  --popover: #2c2c2e;
+  --popover-foreground: #f5f5f7;
+  --primary: #0a84ff;
+  --primary-foreground: #ffffff;
+  --secondary: #2c2c2e;
+  --secondary-foreground: #f5f5f7;
+  --muted: #2c2c2e;
+  --muted-foreground: #98989d;
+  --accent: #30d158;
+  --accent-foreground: #000000;
+  --destructive: #ff453a;
+  --destructive-foreground: #ffffff;
+  --success: #30d158;
+  --success-foreground: #000000;
+  --warning: #ff9f0a;
+  --warning-foreground: #000000;
+  --error: #ff453a;
+  --error-foreground: #ffffff;
+  --info: #0a84ff;
+  --info-foreground: #ffffff;
+  --border: rgba(255, 255, 255, 0.12);
+  --input: rgba(255, 255, 255, 0.16);
+  --ring: #0a84ff;
+  --chart-1: #0a84ff;
+  --chart-2: #30d158;
+  --chart-3: #ff9f0a;
+  --chart-4: #bf5af2;
+  --chart-5: #98989d;
+
+  --elev-1: 0 1px 3px rgba(0, 0, 0, 0.5), 0 6px 14px -2px rgba(0, 0, 0, 0.45),
+    0 18px 40px -8px rgba(0, 0, 0, 0.55);
+  --elev-2: 0 14px 40px -4px rgba(0, 0, 0, 0.65), 0 6px 16px -2px rgba(0, 0, 0, 0.5);
+  --card-stroke: rgba(255, 255, 255, 0.18);
+  --card-face: linear-gradient(180deg, #3a3a3c 0%, #2c2c2e 45%, #1c1c1e 100%);
+  --card-face-end: #1c1c1e;
+
+  --input-fill: rgba(255, 255, 255, 0.08);
+  --input-inset: inset 0 1px 3px rgba(0, 0, 0, 0.55), inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+  --scrollbar-thumb: rgba(255, 255, 255, 0.18);
+  --scrollbar-thumb-hover: rgba(255, 255, 255, 0.32);
+
+  --glass-bg: rgba(28, 28, 30, 0.32);
+  --glass-bg-strong: rgba(28, 28, 30, 0.42);
+  --glass-stroke-edge: rgba(255, 255, 255, 0.16);
+  --glass-shadow: 0 1px 0 color-mix(in srgb, #ffffff 18%, transparent) inset,
+    0 14px 40px rgba(0, 0, 0, 0.5);
+
+  --sidebar-background: rgba(28, 28, 30, 0.86);
+  --sidebar-foreground: #f5f5f7;
+  --sidebar-primary: #0a84ff;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: rgba(10, 132, 255, 0.18);
+  --sidebar-accent-foreground: #0a84ff;
+  --sidebar-border: rgba(255, 255, 255, 0.12);
+  --sidebar-ring: #0a84ff;
+}
+
+/* Minimal chrome / card / control set — full recipes in reference/elements.md */
+.page-mesh {
+  background-color: var(--background);
+  background-image:
+    radial-gradient(ellipse 90% 70% at 0% 10%, color-mix(in srgb, var(--primary) 32%, transparent), transparent 62%),
+    radial-gradient(ellipse 70% 50% at 8% 70%, color-mix(in srgb, var(--chart-4) 14%, transparent), transparent 55%),
+    radial-gradient(ellipse 60% 50% at 92% 88%, color-mix(in srgb, var(--accent) 16%, transparent), transparent 58%);
+}
+
+.skin-sidebar {
+  background: var(--glass-bg) !important;
+  backdrop-filter: saturate(var(--glass-saturate)) blur(var(--glass-blur)) !important;
+  -webkit-backdrop-filter: saturate(var(--glass-saturate)) blur(var(--glass-blur)) !important;
+  border-right: 1px solid var(--glass-stroke-edge);
+  box-shadow: var(--glass-shadow);
+  transform: translateZ(0);
+}
+
+.skin-toolbar {
+  background: var(--glass-bg-strong) !important;
+  backdrop-filter: saturate(var(--glass-saturate)) blur(var(--glass-blur)) !important;
+  -webkit-backdrop-filter: saturate(var(--glass-saturate)) blur(var(--glass-blur)) !important;
+  border-bottom: 1px solid var(--glass-stroke-edge) !important;
+  box-shadow: var(--glass-shadow);
+  transform: translateZ(0);
+}
+
+.skin-card,
+.dash-panel {
+  background: var(--card-face) !important;
+  border: 1px solid var(--card-stroke) !important;
+  box-shadow: var(--elev-1) !important;
+  border-radius: var(--radius);
+}
+
+.skin-input {
+  background: var(--input-fill) !important;
+  border: 1px solid transparent !important;
+  box-shadow: var(--input-inset) !important;
+}
+
+.skin-btn-primary {
+  background-color: var(--primary) !important;
+  background-image: linear-gradient(
+    180deg,
+    color-mix(in srgb, #ffffff 38%, var(--primary)) 0%,
+    var(--primary) 48%,
+    color-mix(in srgb, #000000 8%, var(--primary)) 100%
+  ) !important;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    0 1px 2px color-mix(in srgb, var(--primary) 35%, transparent);
+}
+
+.pressable {
+  transition: transform var(--motion-fast) var(--deck-ease);
+}
+.pressable:active {
+  transform: scale(0.97);
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .skin-sidebar,
+  .skin-toolbar {
+    background: var(--card) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+}
